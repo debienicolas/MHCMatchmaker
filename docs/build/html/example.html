@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Worked out example &mdash; MHC-Matchmaker  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=7dc6ce7e" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Overview" href="overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            MHC-Matchmaker
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Worked out example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submitting-a-job">Submitting a job</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#input-data">Input data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#results">Results</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#input">Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#alignment">Alignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#solvent-accessibility-scores">Solvent Accessibility scores</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mismatches">Mismatches</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#eplets">Eplets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rankings">Rankings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#download-results">Download results</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MHC-Matchmaker</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Worked out example</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="worked-out-example">
+<h1>Worked out example<a class="headerlink" href="#worked-out-example" title="Link to this heading"></a></h1>
+<p>WORK IN PROGRESS</p>
+<p>This section will walk you through submitting and interpreting the results of an MHC-matchmaker analysis with the following input data:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>identifier</p></th>
+<th class="head"><p>type</p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Monterey</p></td>
+<td><p>Recipient</p></td>
+<td><p>Mamu-A1*004:01:02</p></td>
+<td><p>Mamu-DQA1*01:04:01:01</p></td>
+<td><p>Mamu-DQA1*01:05:03</p></td>
+<td><p>Mamu-DQB1*06:01:01:01</p></td>
+<td><p>Mamu-DQB1*06:02:02</p></td>
+<td><p>Mamu-DRB1*03:09:01:01</p></td>
+<td><p>Mamu-DRB*W002:01</p></td>
+<td><p>Mamu-B*001:02</p></td>
+</tr>
+<tr class="row-odd"><td><p>Porky</p></td>
+<td><p>Donor</p></td>
+<td><p>SLA-1*08:05</p></td>
+<td><p>SLA-3*06:01</p></td>
+<td><p>SLA-DRB1*06:01</p></td>
+<td><p>SLA-DQB1*06:01</p></td>
+<td><p>SLA-DQA*01:06</p></td>
+<td><p>SLA-DRA*02:03:02</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Big Sur</p></td>
+<td><p>Recipient</p></td>
+<td><p>Mamu-A1*113:01</p></td>
+<td><p>Mamu-B*015:04</p></td>
+<td><p>Mamu-DQA1*26:01</p></td>
+<td><p>Mamu-DQA1*26:03</p></td>
+<td><p>Mamu-DQB1*15:01</p></td>
+<td><p>Mamu-DQB1*15:03</p></td>
+<td><p>Mamu-DRB1*03:03</p></td>
+<td><p>Mamu-DRB1*07:01</p></td>
+</tr>
+<tr class="row-odd"><td><p>Pig 2</p></td>
+<td><p>Donor</p></td>
+<td><p>SLA-1*04:03</p></td>
+<td><p>SLA-3*03:08</p></td>
+<td><p>SLA-DRB1*04:02</p></td>
+<td><p>SLA-DQB1*02:09</p></td>
+<td><p>SLA-DQA*02:07</p></td>
+<td><p>SLA-DRA*02:03:01</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<section id="submitting-a-job">
+<h2>Submitting a job<a class="headerlink" href="#submitting-a-job" title="Link to this heading"></a></h2>
+<p>The input data can be submitted in 2 ways:</p>
+<ul class="simple">
+<li><p>It can be uploaded as an excel or csv file. For specific details on the file format, check out the following <a class="reference external" href="https://mhcmatchmaker-4875cb56efa5.herokuapp.com/input_instructions">page</a>.</p></li>
+<li><p>Use the web app input interface to manually construct the input data.</p></li>
+</ul>
+<p>Besides the input data, the relative solvent accessibility threshold can be set (default value is 0.25).</p>
+</section>
+<section id="input-data">
+<h2>Input data<a class="headerlink" href="#input-data" title="Link to this heading"></a></h2>
+<p>Once the data is uploaded, the input data is validated.<br />
+Multiple checks are performed:</p>
+<ul class="simple">
+<li><p>Check if the allele is present in the database <a class="reference external" href="https://www.ebi.ac.uk/ipd">IPD</a> (<a class="reference internal" href="overview.html#input-data"><span class="std std-ref">supported species</span></a>):</p>
+<ul>
+<li><p>If not, check if the allele name is a previous nomenclature (e.g. “A<em>0210” is a previous name for “A</em>02:10”)</p></li>
+<li><p>If not, check if we can shorten the allele name to a valid allele (e.g. “Mamu-A1<em>113:01:02” can be matched to “Mamu-A1</em>113:01”)</p></li>
+</ul>
+</li>
+<li><p>Check if the allele status is “public” (the <a class="reference external" href="https://www.ebi.ac.uk/ipd">IPD</a> database status is not “abandoned”)</p></li>
+</ul>
+<p>In the figure below, the red box indicates that the “Mamu-A1*113:01” allele is not valid which leads to the allele being removed from the haplotype and not taken into account during the matching process.<br />
+The blue box displays all the alleles that were replaced by other more recent or specific alleles.
+These boxes only appear if there are invalid alleles or if replacements are relevant.</p>
+<p><img alt="image" src="_images/input_data.png" /></p>
+</section>
+<section id="results">
+<h2>Results<a class="headerlink" href="#results" title="Link to this heading"></a></h2>
+<p>When the job has finished running, the results are displayed in six tabs:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#input"><span class="xref myst">Input</span></a></p></li>
+<li><p><a class="reference internal" href="#alignment"><span class="xref myst">Alignment</span></a></p></li>
+<li><p><a class="reference internal" href="#solvent-accessibility-scores"><span class="xref myst">Solvent Accessibility scores</span></a></p></li>
+<li><p><a class="reference internal" href="#mismatches"><span class="xref myst">Mismatches</span></a></p></li>
+<li><p><a class="reference internal" href="#eplets"><span class="xref myst">Eplets</span></a></p></li>
+<li><p><a class="reference internal" href="#rankings"><span class="xref myst">Rankings</span></a></p></li>
+</ul>
+<section id="input">
+<h3>Input<a class="headerlink" href="#input" title="Link to this heading"></a></h3>
+<p>The first tab displays the donors and recipients with their classified haplotypes.
+If any changes were made to the input data, these have already been applied (e.g. invalid alleles removed).</p>
+</section>
+<section id="alignment">
+<h3>Alignment<a class="headerlink" href="#alignment" title="Link to this heading"></a></h3>
+<p>The Alignment tab displays the individual aligned allele sequences per class.</p>
+<p>One can display a selection of donors or recipients using the first dropdown menu.
+The second dropdown menu allows to select which class to display.</p>
+<p>The “Show mismatches w/ consensus” option highlights cells in red where the sequences differ from the consensus.</p>
+<p><img alt="image" src="_images/alignment.png" /></p>
+<p style="text-align: center;"><em>Alignment Tab</em></p>
+</section>
+<section id="solvent-accessibility-scores">
+<h3>Solvent Accessibility scores<a class="headerlink" href="#solvent-accessibility-scores" title="Link to this heading"></a></h3>
+<p>The third tab displays an overview of the solvent accessibility scores for the donors and recipients.</p>
+<p>The first section shows the relative solvent accessibility scores (RSA) for individual alleles.
+The first table shows the amino acid sequences of the selected alleles.
+The graph plots the RSA scores for each amino acid position with the red horizontal line denoting the RSA threshold set in the <a class="reference internal" href="#submitting-a-job"><span class="xref myst">input section</span></a>.</p>
+<p>If multiple individual alleles are selected, the ‘show mismatches’ button can be enabled.
+This will color the cells of the mismatches between the selected alleles in red and plot red vertical lines on the RSA plot.</p>
+<p><img alt="image" src="_images/SASIndiv.png" /></p>
+<p style="text-align: center;"><em>RSA scores for individual alleles</em></p>
+<p>The second section displays the <a class="reference internal" href="overview.html#solvent-accessibility-scores"><span class="std std-ref">grouped RSA score</span></a> for the donors and recipients.<br />
+The first dropdown menu allows to select which class to display.<br />
+The second dropdown menu allows for donors and recipients to be selected.<br />
+The horizontal red line is again the RSA threshold.</p>
+<p><img alt="image" src="_images/SASGrouped.png" /></p>
+<p style="text-align: center;"><em>RSA scores for donors and recipients</em></p>
+</section>
+<section id="mismatches">
+<h3>Mismatches<a class="headerlink" href="#mismatches" title="Link to this heading"></a></h3>
+<p>The mismatches tab goes into detail about the mismatches between donors and recipients.</p>
+<p>The first 2 dropdown menus serve the purpose of selecting recipient and donor.
+The third dropdown menu is for class selection.</p>
+<p><img alt="image" src="_images/mismatches_all.png" /></p>
+<p style="text-align: center;"><em>Mismatch tab</em></p>
+<p>The mismatch table consists of the following columns:</p>
+<ul class="simple">
+<li><p>Position: the position in the amino acid sequence</p></li>
+<li><p>Mismatches donor: the amino acids present in the donor alleles but not in the recipient alleles (for this specific position).</p></li>
+<li><p>Mismatches recipient: the amino acids present in the recipient alleles but not in the donor alleles (for this specific position).</p></li>
+<li><p>Donor mismatch significance: the <a class="reference internal" href="overview.html#mismatch-significance"><span class="std std-ref">significance score</span></a> of the donor mismatches.</p></li>
+<li><p>Recipient mismatch significance: the <a class="reference internal" href="overview.html#mismatch-significance"><span class="std std-ref">significance score</span></a> of the recipient mismatches.</p></li>
+</ul>
+<p>For the Donor and Recipient mismatch significance columns, if the color of the score is:</p>
+<ul class="simple">
+<li><p>Red: the RSA value for that mismatch is lower than the threshold.</p></li>
+<li><p>Green: the RSA value for that mismatch is higher than the threshold.</p></li>
+</ul>
+<p>If there is an empty donor mismatch cell, it means that there is no mismatch at that position, but there is a recipient mismatch in the next column (the same is true for empty recipient mismatch cells).</p>
+<p>The two checkboxes at the top right are used to filter the mismatches by taking into account the RSA threshold.<br />
+The following figure shows the RSA filtered donor mismatches.</p>
+<p><img alt="image" src="_images/DonorRSAFilteredMismatch.png" /></p>
+<p style="text-align: center;"><em>RSA filtered donor mismatches</em></p>
+</section>
+<section id="eplets">
+<h3>Eplets<a class="headerlink" href="#eplets" title="Link to this heading"></a></h3>
+<p>In this first section of the eplets tab, the recipient, the donor and class can be selected to display the eplets present in the mismatches.
+The fourth dropdown menu is to select the type of mismatches to display (either donor or recipient mismatches).</p>
+<p><strong><em>NOTE:</em></strong> The mismatches used to identify the eplets are the unfiltered/initial mismatches.</p>
+<p>See the <a class="reference internal" href="overview.html#identifying-known-eplets"><span class="std std-ref">overview section</span></a> for more information on how eplets are identified.<br />
+The first column displays the identified eplet IDs and the second columns displays the donor alleles that have the mismatch and the eplet. The second column is necessary as not every donor allele has every grouped donor mismatch. The same is true for eplets.</p>
+<p><img alt="image" src="_images/MismatchEplets.png" /></p>
+<p style="text-align: center;"><em>Mismatch eplets</em></p>
+<p>Below the table, a specific eplet can be selected which will display the relevant donor alleles with the eplet and mismatch cells highlighted.</p>
+<p><img alt="image" src="_images/selectedEplet.png" /></p>
+<p style="text-align: center;"><em>Selected eplet</em></p>
+<p>The second section displays all the eplets present in any selected individual allele.</p>
+<p><img alt="image" src="_images/EpletsIndiv.png" /></p>
+<p style="text-align: center;"><em>Eplets individual alleles</em></p>
+</section>
+<section id="rankings">
+<h3>Rankings<a class="headerlink" href="#rankings" title="Link to this heading"></a></h3>
+<p>With all the initial and filtered mismatches computed, the final tab displays the rankings based on 4 different criteria:</p>
+<ul class="simple">
+<li><p>The amount of donor mismatches</p></li>
+<li><p>The amount of recipient mismatches</p></li>
+<li><p>The amount of RSA filtered donor mismatches</p></li>
+<li><p>The amount of RSA filtered recipient mismatches</p></li>
+</ul>
+<p>The rankings are done per class.</p>
+<p><img alt="image" src="_images/Ranking.png" /></p>
+<p style="text-align: center;"><em>Rankings tab</em></p>
+</section>
+<section id="download-results">
+<h3>Download results<a class="headerlink" href="#download-results" title="Link to this heading"></a></h3>
+<p>When downloading the results, a zip file is downloaded with 2 folders:</p>
+<ul class="simple">
+<li><p>results_csv: contains the results in csv format</p></li>
+<li><p>results_excel: contains the results in excel format</p></li>
+</ul>
+<p>Each folder contains a file for every result tab in the web app. The key differences are:</p>
+<ul class="simple">
+<li><p>Excel files have seperate sheets for each class within a single file.</p></li>
+<li><p>CSV results are split into multiple files per tab if there are multiple classes. The class name is added to the file name.</p></li>
+</ul>
+<p><img alt="image" src="_images/Download.png" /></p>
+<p style="text-align: center;"><em>Download results</em></p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="overview.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

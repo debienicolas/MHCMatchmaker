@@ -1,0 +1,531 @@
+.App {
+  text-align: left;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Existing styles... */
+
+.container {
+  max-width: 1200px; /* Adjust this value as needed */
+  margin: 0 auto;
+  padding: 20px;
+  width: 100%; /* This ensures the container takes full width up to max-width */
+}
+
+.container-wide {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.container-narrow {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  width: 100%;
+}
+
+
+.file-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.file-input-wrapper input[type="file"] {
+  display: none;
+}
+
+.file-input-wrapper label {
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 16px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+.file-input-wrapper label:hover {
+  background-color: #e0e0e0;
+}
+
+.file-name {
+  display: block;
+  text-align: left;
+  margin-top: 5px;
+}
+
+/* New styles for the response section */
+.response-section {
+  margin-top: 60px;  
+  margin-bottom: 60px;  
+  padding: 30px;  
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.response-section h2 {
+  font-size: 2.5em;
+  color: #00539B;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: left;
+  /*border-bottom: 2px solid #ddd;*/
+  padding-bottom: 10px;
+}
+
+.response-section h3 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #00539B;
+}
+
+/* Styles for the tables */
+.donor-table,
+.recipient-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+}
+
+.donor-table th,
+.recipient-table th,
+.donor-table td,
+.recipient-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+.donor-table th,
+.recipient-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.donor-table tr:nth-child(even),
+.recipient-table tr:nth-child(even) {
+  background-color: #f8f8f8;
+}
+
+/* Styling the RSA input section*/
+.rsa-input {
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+}
+
+.rsa-input label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.rsa-input input[type="text"] {
+  width: 60px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.rsa-input input[type="text"]:focus {
+  outline: none;
+  border-color: #5881d3;
+  box-shadow: 0 0 5px rgba(89, 150, 207, 0.5);
+  text-align: left;
+}
+
+.file-input-wrapper {
+  display: flex;
+  align-items: left;
+  margin-bottom: 15px;
+}
+
+.file-input-label {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.file-input-label:hover {
+  background-color: #45a049;
+}
+
+.file-name {
+  font-style: italic;
+}
+
+.MuiAutocomplete-popper {
+  position: absolute !important;
+}
+
+/* Styles for the allele fetch section */
+.allele-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  margin-bottom: 1rem;
+}
+
+.allele-input-wrapper input {
+  padding: 0.5rem;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.allele-input-wrapper button {
+  padding: 0.5rem 1rem;
+  font-size: 14px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.allele-input-wrapper button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.allele-input-wrapper button svg {
+  margin-right: 6px;
+}
+
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.allele-data {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 4px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.allele-data pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.section-separator {
+  margin: 40px 0;
+  border-top: 1px solid #e0e0e0;
+}
+
+.allele-input-wrapper .MuiAutocomplete-root {
+  margin-bottom: 10px;
+}
+
+.success-message {
+  color: green;
+  margin-top: 10px;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
+
+/* Styles for the textareas*/
+.textarea-small {
+  width: 100%; /* Adjust width as needed */
+  height: 80px; /* Adjust height as needed */
+  resize: none; /* Prevent resizing */
+}
+
+.execution-time-export {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.export-button {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.export-button:hover {
+  background-color: #45a049;
+}
+
+.execution-time {
+  margin-right: 20px;
+}
+
+.entity-input {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.input-instructions-link {
+  display: block;
+  text-align: left;
+  margin-top: 10px;
+  font-size: 0.9em;
+}
+
+.input-instructions-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.input-instructions-link a:hover {
+  text-decoration: underline;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  margin-bottom: 20px;
+}
+
+.title-wrapper {
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.title-wrapper h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #333;
+}
+
+
+.doc-button {
+  text-transform: none !important;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .app-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .doc-button {
+    margin-top: 10px;
+  }
+}
+
+.doc-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #1976d2;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.doc-link:hover {
+  color: #1565c0;
+}
+
+/* New styles for the invalid alleles section */
+.invalid-alleles-section {
+  margin-top: 15px;
+  padding: 10px 15px;
+  background-color: #ffcdcd;
+  border: 1px solid #850404;
+  border-radius: 4px;
+}
+
+.invalid-alleles-section h4 {
+  color: #850404;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.invalid-alleles-section p {
+  margin-bottom: 10px;
+}
+
+.invalid-alleles-section ul {
+  margin-bottom: 0;
+  padding-left: 20px;
+}
+
+.invalid-alleles-section li {
+  color: #850404;
+}
+
+/* New styles for the transformed alleles section */
+.transformed-alleles-section {
+  margin-top: 15px;
+  padding: 10px 15px;
+  background-color: #e8f4fd;
+  border: 1px solid #004085;
+  border-radius: 4px;
+}
+
+.transformed-alleles-section h4 {
+  color: #004085;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.transformed-alleles-section p {
+  margin-bottom: 10px;
+}
+
+.transformed-alleles-section ul {
+  margin-bottom: 0;
+  padding-left: 20px;
+}
+
+.transformed-alleles-section li {
+  color: #004085;
+}
+
+.alleles-info-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  gap: 20px; /* Add some space between the sections */
+}
+
+.invalid-alleles-section,
+.transformed-alleles-section {
+  flex: 1; /* This will make both sections take up equal width */
+  min-width: 0; /* This allows the sections to shrink if needed */
+  padding: 10px 15px;
+  border-radius: 4px;
+}
+
+/* Update the media query for smaller screens */
+@media (max-width: 768px) {
+  .alleles-info-container {
+    flex-direction: column;
+  }
+
+  .invalid-alleles-section,
+  .transformed-alleles-section {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
+
+.doc-link {
+  font-size: 0.8em;
+  color: #666;
+  text-decoration: none;
+  margin-left: 8px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.doc-link:hover {
+  text-decoration: underline;
+}
+
+/* Styles for the ContactSection */
+.contact-section {
+  background-color: #f8f9fa;
+  border-top: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-top: 60px;  
+  overflow: hidden;
+}
+
+.contact-section .MuiContainer-root {
+  padding-top: 16px;  /* Reduced padding */
+  padding-bottom: 16px;
+}
+
+.contact-section .MuiTypography-h6 {
+  color: #333;
+  font-weight: bold;
+  font-size: 1.1rem;  /* Smaller font size for the title */
+}
+
+.contact-section .MuiLink-root {
+  transition: color 0.3s ease;
+  font-size: 0.9rem;  /* Smaller font size for links */
+}
+
+.contact-section .MuiLink-root:hover {
+  color: #1565c0;
+}
+
+.contact-section .MuiTypography-body2 {
+  font-size: 0.85rem;  /* Smaller font size for the main text */
+}
+
+.contact-section .MuiTypography-caption {
+  font-size: 0.75rem;  /* Smaller font size for the copyright text */
+}
