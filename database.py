@@ -25,7 +25,7 @@ class Allele:
     aligned_rsa: Optional[List[float]] = None
     aligned_asa: Optional[List[float]] = None
     start_pos : Optional[int] = None    # 1-indexed positionof the sequence
-    eplets: Optional[List[str]] = None
+    eplets: List[str] = field(default_factory=list)
     netsurfp_rsa_unaligned: Optional[List[float]] = None
 
 #class TinyDB:
@@ -69,7 +69,6 @@ class TinyDBDatabase():
             except (FileNotFoundError, json.JSONDecodeError) as e:
                 logger.error(f"Error loading original database: {e}")
 
-    
     def find(self, allele_id: str) -> Allele:
         """Find an allele by its ID"""
         result = self.alleles.get(where('_id') == allele_id)
@@ -264,11 +263,21 @@ class TinyDBDatabase():
         data.pop("_id", None)
         return Allele(**data)
 
+    def check_secondary_names(self, allele_id: str):
+        """Check if the allele_id is a secondary name of another allele"""
+
+        # Check if the allele is a secondary name match of another allele
+        secondary_name_match = self.alleles.get(where("secondary_names").contains(allele_id))
+        if secondary_name_match: # not None
+            return secondary_name_match["_id"]
+        else:
+            return None
+
 
 
 def get_database():
     """
     Return a database object:
-    Either MongoDB, TinyDB, or localDB depending on the set environment variable
+    (MongoDB used for the demo/prod., TinyDB for local deployment)
     """
     return TinyDBDatabase()

@@ -39,7 +39,7 @@ def setup_logging():
 # Import your existing Python logic
 from matchmaker import MHCMatchmaker
 import database
-import data_exporter
+import utils.data_exporter as data_exporter
 from datetime import datetime, timedelta
 
 

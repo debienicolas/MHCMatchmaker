@@ -5,15 +5,14 @@ import json
 import os
 import pandas as pd
 from ast import literal_eval
-from openpyxl import Workbook
 import openpyxl
 import time
 from operator import add
 
 # project imports
-from database import get_database, Allele
+from database import get_database
 from utils.utils import parse_allele_name
-from epletMatching import create_eplet_dict
+from utils.epletMatching import create_eplet_dict
 
 # set up logging
 logging.basicConfig(level=logging.INFO, 
@@ -23,14 +22,9 @@ logging.basicConfig(level=logging.INFO,
 logger = logging.getLogger(__name__)
 
 
-# # load environment variables
-# load_dotenv()
-
-
 class MHCMatchmaker:
     """
     This is the main class for the MHCMatchmaker.
-    It contains all the attributes and methods for each MHC matchmaking session.
 
     Attributes:
         donors (Dict): Dictionary mapping donor IDs to their haplotype information.
@@ -63,18 +57,16 @@ class MHCMatchmaker:
     
     def load_local_db(self):
         """
-        Loads the local database with the relevant information from the database.
+        Loads the relevant info for this session from the database into a local dictionary.
         
         This method retrieves allele data for all alleles in both donor and recipient
         haplotypes and stores them in the local_db dictionary for faster access.
         """
-        
         # recipients
         for recip_id in self.recipients:
             for allele in self.recipients[recip_id]["Haplotype"]:
                 allele_data = self.db.find(allele)
                 self.local_db[allele] = allele_data
-        
         # donors
         for donor_id in self.donors:
             for allele in self.donors[donor_id]["Haplotype"]:
@@ -82,9 +74,7 @@ class MHCMatchmaker:
                 self.local_db[allele] = allele_data
 
         logger.info(f"Local database loaded with {len(self.local_db)} alleles")
-
-        return
-
+        return None
 
     def set_inputs_csv(self,input_df: pd.DataFrame) -> Tuple[Dict, Dict]:
         """ 
@@ -159,7 +149,6 @@ class MHCMatchmaker:
         
         return self.donors, self.recipients
 
-
     def set_inputs_excel(self,workbook: openpyxl.Workbook) -> Tuple[Dict, Dict]:
         """
         Loads donor and recipient information from an Excel workbook.
@@ -231,9 +220,7 @@ class MHCMatchmaker:
         self.donors = donors
         self.recipients = recipients
 
-
         return (donors, recipients)
-
 
     def check_alleles(self) -> None:
         """
@@ -241,9 +228,9 @@ class MHCMatchmaker:
         
         This method performs several checks on each allele:
         1. Verifies if the allele exists in the database
-        2. If not found, checks if it's a secondary name of another allele
-        3. If still not found, attempts to find a similar base allele
-        4. Verifies the allele is not abandoned and has necessary attributes
+            2. If not found, checks if it's a secondary name of another allele
+            3. If still not found, attempts to find a similar base allele
+        4. Verifies the allele has necessary attributes
         
         Invalid alleles are removed from haplotypes and stored in self.invalid_alleles.
         Transformed alleles are tracked in self.transformed_alleles.
@@ -259,6 +246,7 @@ class MHCMatchmaker:
         donors_and_recips = {**self.donors, **self.recipients}
 
         for id in donors_and_recips:
+            # copy the haplotype to avoid modifying the original
             haplotype = donors_and_recips[id]["Haplotype"].copy()
             for allele in haplotype:
                 valid_allele = True
@@ -312,6 +300,7 @@ class MHCMatchmaker:
                                 self.recipients[id]["Haplotype"].append(new_allele_id)
                             allele_data = self.db.bson_to_dataclass(similar_alleles[0])
                             self.transformed_alleles[allele] = new_allele_id
+
                         # if there are multiple similar alleles,use the shortest one
                         elif len(similar_alleles) > 1:
                             logger.info(f"Allele {allele} not found in database, but multiple similar alleles found: {[allele['_id'] for allele in similar_alleles]}")
@@ -339,14 +328,8 @@ class MHCMatchmaker:
 
                 #assert isinstance(allele_data, Allele), f"{allele} data is not of type Allele, it is {type(allele_data)}"
                 if valid_allele:
-                    # Check if the allele status is not "abandoned"
-                    if allele_data.status == "abandoned":
-                        logger.warning(f"Allele {allele} is abandoned")
-                        valid_allele = False
-                        #raise ValueError(f"Allele {allele} is abandoned")
-                    
                     # Check if the allele has all the necessary attributes
-                    if allele_data.aligned_seq == "" or allele_data.aligned_seq:
+                    if allele_data.aligned_seq == "" or not allele_data.aligned_seq:
                         #logger.warning(f"Allele {allele} has no aligned sequence")
                         pass
                         #raise ValueError(f"Allele {allele} has no aligned sequence")
@@ -368,7 +351,6 @@ class MHCMatchmaker:
         #print("Invalid alleles: ", self.invalid_alleles)
         return
     
-
     def classify_haplotypes(self) -> None:
         """
         Classifies alleles in haplotypes into specific HLA classes.
