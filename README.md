@@ -1,53 +1,9 @@
 # MHCMatchmaker
 
-This repository contains the code for the paper:
+This repository contains the code for the MHC Matchmaker algorithm and web application. Our MHC Matchmaker algorithm is based on a curated database of all available Pig, Rhesus Macaques, Crab-eating Macaques and Human amino acid MHC sequences in the IMGT database (accessed September 1st, 2024). These sequences are aligned against a common consensus and the relative solvent accessibility score is calculated using the NetSurfP-3.0 model to compare and collate amino acid differences. 
 
 
-## Running the application locally
-
-
-### Installation
-
-1. Clone the repository
-   ```
-   git clone https://github.com/debienicolas/MHCMatchmaker.git
-   cd MHCMatchmaker
-   ```
-
-2. Create and activate a virtual environment (recommended)
-   ```
-   python -m venv venv
-   
-   # On Windows
-   venv\Scripts\activate 
-   
-   # On macOS/Linux
-   source venv/bin/activate
-   ```
-
-3. Install dependencies
-   ```
-   pip install -r requirements.txt
-   ```
-
-
-### Running the Application
-
-Start the application:
-
-```
-python app.py
-```
-
-The application should now be running at http://localhost:8000 (or the port specified in your configuration).
-
-## Running with Docker
-
-### Prerequisites
-
-- Docker
-
-### Using Docker
+## Running the application locally using Docker
 
 1. Build the Docker image
    ```
@@ -59,5 +15,5 @@ The application should now be running at http://localhost:8000 (or the port spec
    docker run -p 8000:8000 mhcmatchmaker
    ```
 
-   The application should now be accessible at http://localhost:8000.
+   The application should now be accessible locally at http://localhost:8000.
 
