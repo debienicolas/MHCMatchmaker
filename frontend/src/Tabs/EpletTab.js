@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { Typography, TableContainer, Table, TableBody, TableHead, TableRow, TableCell, Paper, FormControl, InputLabel, Select, MenuItem, Box, ListSubheader } from '@mui/material';
+import { Typography, TableContainer, Table, TableBody, TableHead, TableRow, TableCell, Paper, FormControl, InputLabel, Select, MenuItem, Box } from '@mui/material';
 import InfoIcon from '@mui/icons-material/Info';
 import Tooltip from '@mui/material/Tooltip';
 import { API_BASE_URL } from '../config.js';
@@ -89,12 +89,13 @@ function EpletTab({epletData, donors, recipients, classesToShow, tabState, setTa
     ? ['Eplet ID', 'Donor alleles responsible for mismatch']
     : ['Eplet ID', 'Recipient alleles responsible for mismatch'];
 
-  const getSequence = (id) => {
-    return entityInfo[id].aligned_seq;
-  };
-
   const sequences = useMemo(() => {
     if (!selectedEplet || !eplets || !eplets[selectedEplet]) return {};
+    
+    const getSequence = (id) => {
+      return entityInfo[id].aligned_seq;
+    };
+    
     const epletInfo = eplets[selectedEplet];
     const seqs = {};
     epletInfo.donors.forEach(id => {
@@ -106,7 +107,7 @@ function EpletTab({epletData, donors, recipients, classesToShow, tabState, setTa
       if (seq) seqs[id] = seq.slice(epletInfo.min_pos - 1, epletInfo.max_pos);
     });
     return seqs;
-  }, [selectedEplet, eplets, entityInfo, selectedClass]);
+  }, [selectedEplet, eplets, entityInfo]);
 
   const getCellStyle = (index, epletInfo, isHeader, cellValue) => {
     const position = epletInfo.min_pos + index;

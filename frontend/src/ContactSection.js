@@ -1,7 +1,6 @@
 import React from 'react';
 import { Box, Typography, Link, Container, Divider } from '@mui/material';
-import { Mail, GitHub } from '@mui/icons-material';
-import LicensingPage from './LicensingPage';
+import { Mail} from '@mui/icons-material';
 
 const ContactSection = () => {
   const emailSubject = "Feedback MHC Matchmaker";

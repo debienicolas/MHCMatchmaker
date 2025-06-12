@@ -417,7 +417,6 @@ class MHCMatchmaker:
         
         return self.donors, self.recipients
 
-
     def group_alleles(self) -> None:
         """
         Groups the alleles of each haplotype by class for donors and recipients.
@@ -466,7 +465,6 @@ class MHCMatchmaker:
         logger.info("Alleles have been grouped")
         
         return self.donors, self.recipients
-
                 
     def calcSingleDifference(self, donor_id: str, recipient_id: str) -> Dict:
         """
@@ -557,7 +555,6 @@ class MHCMatchmaker:
 
 
         return class_scores
-
     
     def calcMHCDifference(self) -> Dict:
         """
@@ -583,7 +580,6 @@ class MHCMatchmaker:
             self.difference_scoring[recip_id] = scores_dict
         
         return self.difference_scoring
-
 
     def average_sas_scores(self) -> Dict:
         """
@@ -661,7 +657,6 @@ class MHCMatchmaker:
 
         return self.sas_scores
     
-
     def filter_by_sas(self, rsa_threshold: float = 0.5) -> Dict:
         """
         Filters mismatches based on solvent accessibility scores.
@@ -734,7 +729,6 @@ class MHCMatchmaker:
 
         return self.difference_scoring
 
-
     def has_eplet(self, seq: str, eplet_data: Dict) -> bool:
         """
         Determines if a sequence contains a specific eplet.
@@ -757,7 +751,6 @@ class MHCMatchmaker:
             if seq[int(pos)-1] != eplet_data[pos]:
                 return False
         return True
-
 
     def check_known_eplets(self) -> Dict:
         """
@@ -958,7 +951,6 @@ class MHCMatchmaker:
 
         return eplets_found
 
-
     def get_relevant_classes(self) -> List[str]:
         """
         Identifies HLA classes that are relevant for the matching process.
@@ -983,7 +975,6 @@ class MHCMatchmaker:
                 relevant_classes.append(clas)
         return relevant_classes
     
-
     def perform_matching(self, input_filename: str) -> Dict:
         """
         Performs the complete MHC matching process from start to finish.

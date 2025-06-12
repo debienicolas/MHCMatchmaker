@@ -1,8 +1,6 @@
 Worked out example
 =======
 
-WORK IN PROGRESS
-
 This section will walk you through submitting and interpreting the results of an MHC-matchmaker analysis with the following input data:
 
 | identifier | type      |                    |                        |                     |                        |                     |                        |                   |                  |

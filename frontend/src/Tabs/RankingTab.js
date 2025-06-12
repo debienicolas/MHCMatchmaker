@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Typography, TableContainer, Table, TableBody, TableHead, TableRow, TableCell, Paper, FormControl, InputLabel, Select, MenuItem, Box } from '@mui/material';
+import { Typography, TableContainer, Table, TableBody, TableHead, TableRow, TableCell, Paper, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 
 function RankingTab({ rankingData, recipients, classesToShow, tabState, setTabState }) {
   const [selectedRecipient, setSelectedRecipient] = useState(tabState?.selectedRecipient || Object.keys(recipients)[0] || '');

@@ -59,7 +59,7 @@ function SolventAccessibilityScores({ entityInfo, rsaThreshold, tabState, setTab
       setDifferencePositions([]);
       setTabState(prevState => ({...prevState, selectedAlleles: selectedAlleles, showDifferences: showDifferences}));
     }
-  }, [selectedAlleles, entityInfo, setTabState]);
+  },[selectedAlleles, entityInfo, setTabState, showDifferences]);
 
   const options = useMemo(() => ({
     responsive: true,
@@ -280,7 +280,6 @@ function GroupedSolventAccessibilityScores({ sasScores, rsaThreshold, tabState, 
   const [selectedClass, setSelectedClass] = useState(tabState.selectedClass || null);
   const [selectedEntities, setSelectedEntities] = useState(tabState.selectedEntities || []);
   const [chartData, setChartData] = useState(null);
-  const [differencePositions, setDifferencePositions] = useState([]);
 
   const classOptions = useMemo(() => {
     const classes = new Set();
@@ -338,14 +337,14 @@ function GroupedSolventAccessibilityScores({ sasScores, rsaThreshold, tabState, 
           newDifferencePositions.push(labels[i]);  // Use shifted position for differences
         }
       }
-      setDifferencePositions(newDifferencePositions);
+      
       setTabState(prevState => ({...prevState, selectedClass: selectedClass, selectedEntities: selectedEntities}))
     } else {
       setChartData(null);
-      setDifferencePositions([]);
+      
       setTabState(prevState => ({...prevState, selectedClass: selectedClass, selectedEntities: selectedEntities}))
     }
-  }, [selectedClass, selectedEntities, sasScores]);
+  }, [selectedClass, selectedEntities, sasScores, setTabState]);
 
   const options = useMemo(() => ({
     responsive: true,
@@ -414,7 +413,7 @@ function GroupedSolventAccessibilityScores({ sasScores, rsaThreshold, tabState, 
         pan: { enabled: true, mode: 'xy' }
       },
     },
-  }), [rsaThreshold, differencePositions]);
+  }), [rsaThreshold]);
 
   const customStyles = {
     control: (provided) => ({

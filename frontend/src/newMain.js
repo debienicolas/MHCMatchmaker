@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Upload, Download, BookOpen, Link} from 'lucide-react';
 import axios from 'axios';
-import DonorTable, { RecipientTable, EpletTable } from './tables';
+import DonorTable, { RecipientTable } from './tables';
 import './App.css';
-import { DonorRecipientRanking } from './ranking';
 import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
 import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
@@ -149,7 +148,7 @@ function AlternativeLayout() {
     } catch (error) {
       console.error('Error polling for results:', error);
       setInputSubmissionStatus("error");
-      if (error.response?.status == 503) {
+      if (error.response?.status === 503) {
         setInputErrorMessage("The server is currently busy. Please try again later.");
       } else {
         setInputErrorMessage(error.response?.data?.result?.error || error.message || "An error occurred while retrieving results. Please try again.");
@@ -193,10 +192,11 @@ function AlternativeLayout() {
 
   useEffect(() => {
     if (inputMethod === 'create' && donors.length === 0 && recipients.length === 0) {
-      addDonor();
-      addRecipient();
+      // Initialize with one donor and one recipient when switching to create mode
+      setDonors([{ id: 'Donor1', alleles: [] }]);
+      setRecipients([{ id: 'Recipient1', alleles: [] }]);
     }
-  }, [inputMethod]);
+  }, [inputMethod, donors.length, recipients.length]);
   
   useEffect(() => {
     console.log('Current API base URL:', API_BASE_URL);

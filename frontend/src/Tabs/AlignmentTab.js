@@ -37,7 +37,7 @@ export function AlignedSequenceTable({ sequences, donors, recipients, tabState, 
     useEffect(() => {
       fetchConsensusSequence(selectedClass);
       setTabState(prevState => ({...prevState, selectedClass: selectedClass}))
-    }, [selectedClass, selectedAnimals, consensusSequence,showMismatches]);
+    }, [selectedClass, selectedAnimals, consensusSequence,showMismatches, setTabState]);
   
     const classOptions = useMemo(() => {
       const classes = new Set();

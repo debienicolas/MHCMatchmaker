@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import InputInstructions from './inputInstructions';
-import AlternativeLayout from './newMain';
-import LicensingPage from './LicensingPage';
+import InputInstructions from './inputInstructions.js';
+import AlternativeLayout from './newMain.js';
+import LicensingPage from './LicensingPage.js';
 function App() {
   return (
     <Router>

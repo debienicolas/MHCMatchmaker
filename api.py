@@ -52,7 +52,7 @@ setup_logging()
 # Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://mhcmatchmaker-4875cb56efa5.herokuapp.com", "http://localhost:8000", "http://localhost:3000"],
+    allow_origins=[ "http://localhost:8000", "http://localhost:3000"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -454,6 +454,6 @@ async def serve_react_app(full_path: str):
     
 
 if __name__ == "__main__":
-    # this was changed for deployment to heroku
+    # Use 0.0.0.0 to make it accessible from outside localhost (required for Docker and cloud deployment)
     port = int(os.environ.get("PORT", 8000))
-    uvicorn.run(app, host="localhost", port=port,reload=False)
+    uvicorn.run(app, host="0.0.0.0", port=port, reload=False)

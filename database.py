@@ -28,7 +28,6 @@ class Allele:
     eplets: List[str] = field(default_factory=list)
     netsurfp_rsa_unaligned: Optional[List[float]] = None
 
-#class TinyDB:
 
 class TinyDBDatabase():
     """
