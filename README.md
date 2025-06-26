@@ -15,7 +15,7 @@ This repository contains the code for the MHC Matchmaker algorithm and web appli
 
 ## Demo version
 
-A demo version of the web application is available at : ADD URL.  
+A demo version of the web application is available at : [MHCMatchmaker](https://mhcmatchmaker.com).  
 The demo version can be used to experiment with MHC Matchmaker but is limited in the amount of donor and recipient pairs it can process.  
 In the case you need to analyze a larger amount of matchings, you can use the local version of MHC Matchmaker.  
 
