@@ -84,3 +84,20 @@ This notebook demonstrates how to:
 - Perform matching calculations in Python
 - Process donor-recipient pairs programmatically
 - Export results to various formats
+
+
+## Citation
+
+If you use this code, please cite our [paper](https://www.amjtransplant.org/article/S1600-6135(25)03073-4/abstract):
+```bibtex
+@article{MHCMatchmaker,
+  title = {{{MHC Matchmaker}}: {{An}} in Silico Based Algorithm to Analyze Cross-Species {{NHP}}, Pig, and Human {{MHC}} Compatibility on the Amino Acid Level},
+  shorttitle = {{{MHC Matchmaker}}},
+  author = {De Bie, Nicolas and Ladowski, Joseph M. and Chapman, Henry and Jackson, Annette M. and Rogers, Bruce W.},
+  year = 2025,
+  month = nov,
+  journal = {American Journal of Transplantation},
+  doi = {10.1016/j.ajt.2025.10.022},
+  pmid = {41197874},
+}
+```
